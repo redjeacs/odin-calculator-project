@@ -5,8 +5,8 @@ const numBtn = document.querySelectorAll(".numBtn");
 const operatorBtn = document.querySelectorAll(".operatorBtn");
 const equalBtn = document.querySelector(".btnEqual");
 const clearBtn = document.querySelector(".clearBtn");
+const deleteBtn = document.querySelector(".deleteBtn");
 let display = document.querySelector(".display");
-display.textContent = "";
 
 function add(a, b) {
   return Math.round((a + b) * 100) / 100;
@@ -70,7 +70,7 @@ numBtn.forEach((button) =>
 operatorBtn.forEach((button) =>
   button.addEventListener("click", function () {
     if (num1 === "") {
-      return alert("Please enter a number first.");
+      num1 = "0";
     }
     if (mathOperator !== null && num2 !== "") {
       num1 = operate(mathOperator, num1, num2);
@@ -86,7 +86,7 @@ equalBtn.addEventListener("click", function () {
     return alert("Please complete the operation.");
   }
   display.textContent = operate(mathOperator, num1, num2);
-  num1 = "";
+  num1 = display.textContent;
   num2 = "";
   mathOperator = null;
 });
@@ -96,4 +96,16 @@ clearBtn.addEventListener("click", function () {
   num1 = "";
   num2 = "";
   mathOperator = null;
+});
+
+deleteBtn.addEventListener("click", function () {
+  if (mathOperator === null) {
+    if (num1.length > 0) {
+      num1 = num1.slice(0, -1);
+      display.textContent = num1 || "0";
+    }
+  } else if (num2 !== "") {
+    num2 = num2.slice(0, -1);
+    display.textContent = num2;
+  }
 });
