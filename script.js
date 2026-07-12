@@ -92,8 +92,8 @@ equalBtn.addEventListener("click", function () {
 });
 
 clearBtn.addEventListener("click", function () {
-  display.textContent = "";
-  num1 = "";
+  display.textContent = "0";
+  num1 = "0";
   num2 = "";
   mathOperator = null;
 });

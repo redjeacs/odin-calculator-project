@@ -6,9 +6,13 @@ body {
 }
 #container {
   background-color: black;
+  border-radius: 5px;
   width: 250px;
   height: 380px;
   padding: 10px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.4),
+    0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .display {
@@ -31,6 +35,11 @@ body {
   justify-content: center;
 }
 
+button:hover {
+  cursor: pointer;
+  background-color: rgb(67, 67, 67);
+}
+
 .btn0 {
   min-width: 100px;
 }
@@ -42,6 +51,7 @@ body {
   color: white;
   border: none;
   border-radius: 50px;
+  box-shadow: 0 0 1px 1px white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,4 +74,12 @@ body {
   color: white;
   border: none;
   border-radius: 50px;
+}
+
+#numbers > button:hover {
+  background-color: rgb(67, 67, 67);
+}
+
+#operator > button:hover {
+  background-color: darkorange;
 }
