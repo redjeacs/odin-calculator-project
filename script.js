@@ -24,6 +24,10 @@ function divide(a, b) {
   return Math.round((a / b) * 100) / 100;
 }
 
+function modulo(a, b) {
+  return Math.round((a % b) * 100) / 100;
+}
+
 function operate(mathOperator, a, b) {
   a = Number(a);
   b = Number(b);
@@ -39,17 +43,24 @@ function operate(mathOperator, a, b) {
         return "Undefined";
       }
       return divide(a, b);
+    case "%":
+      if (b === 0) {
+        return "Undefined";
+      }
+      return modulo(a, b);
   }
 }
 
 numBtn.forEach((button) =>
   button.addEventListener("click", function () {
     if (mathOperator === null && num1.length < 10) {
-      // Limit to 10 digits
-      num1 += button.textContent;
+      if (num1 === "0") {
+        num1 = button.textContent;
+      } else {
+        num1 += button.textContent;
+      }
       display.textContent = num1;
     } else if (mathOperator !== null && num2.length < 10) {
-      // Limit to 10 digits
       num2 += button.textContent;
       display.textContent = num2;
     }
